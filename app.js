@@ -17,7 +17,7 @@ app.use(express.static(__dirname));
 app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'build')));
 
-const PORT = config.get("port") || 5000;
+const PORT = process.env.PORT || 8080;
 
 async function start() {
   try {
