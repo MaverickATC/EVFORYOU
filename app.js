@@ -14,7 +14,6 @@ app.use("/api/client/question", require("./routes/questions.routes"));
 app.use("/api/client/td", require("./routes/td.routes"));
 app.use("/api/client/buy", require("./routes/buy.routes"));
 app.use(express.static(__dirname));
-app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = process.env.PORT || 8080;
