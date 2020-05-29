@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const config = require("config");
 const mongoose = require("mongoose");
 
@@ -12,6 +13,7 @@ app.use("/api/client/service", require("./routes/service.routes"));
 app.use("/api/client/question", require("./routes/questions.routes"));
 app.use("/api/client/td", require("./routes/td.routes"));
 app.use("/api/client/buy", require("./routes/buy.routes"));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = config.get("port") || 5000;
 
@@ -23,6 +25,10 @@ async function start() {
       useCreateIndex: true,
     });
     app.listen(PORT, () => console.log(`app started on port ${PORT}`));
+
+    app.get('/*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
   } catch (e) {
     console.log("Server error", e.message);
     process.exit(1);
