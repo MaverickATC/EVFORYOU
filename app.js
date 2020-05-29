@@ -30,11 +30,11 @@ async function start() {
       useCreateIndex: true,
     });
     
-
-    // app.get('/*', (req, res) => {
-    //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    // });
-
+//for heroku
+     app.get('/*', (req, res) => {
+       res.sendFile(path.join(__dirname, 'build', 'index.html'));
+     });
+///
     app.listen(PORT, () => console.log(`app started on port ${PORT}`));
 
   } catch (e) {
