@@ -1,0 +1,339 @@
+@font-face {
+  font-family: 'PF Encore Sans Pro Hairline';
+  src: url('./assets/fonts/PFEncoreSansPro-HairlineItalic.eot');
+  src: local('PFEncoreSansPro-HairlineItalic'),
+      url('./assets/fonts/PFEncoreSansPro-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-HairlineItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-HairlineItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-HairlineItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro UltraBlack';
+  src: url('./assets/fonts/PFEncoreSansPro-UltraBlack.eot');
+  src: local('PFEncoreSansPro-UltraBlack'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlack.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlack.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlack.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro ExtraThin';
+  src: url('./assets/fonts/PFEncoreSansPro-ExtraThin.eot');
+  src: local('PFEncoreSansPro-ExtraThin'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThin.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThin.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThin.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-Thin.eot');
+  src: local('PFEncoreSansPro-Thin'),
+      url('./assets/fonts/PFEncoreSansPro-Thin.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Thin.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Thin.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro ExtraThin';
+  src: url('./assets/fonts/PFEncoreSansPro-ExtraThinItalic.eot');
+  src: local('PFEncoreSansPro-ExtraThinItalic'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThinItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThinItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThinItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-ExtraThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-Medium.eot');
+  src: local('PFEncoreSansPro-Medium'),
+      url('./assets/fonts/PFEncoreSansPro-Medium.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Medium.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Medium.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro UltraThin';
+  src: url('./assets/fonts/PFEncoreSansPro-UltraThin.eot');
+  src: local('PFEncoreSansPro-UltraThin'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThin.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThin.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThin.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro UltraBlack';
+  src: url('./assets/fonts/PFEncoreSansPro-UltraBlackItalic.eot');
+  src: local('PFEncoreSansPro-UltraBlackItalic'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlackItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlackItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlackItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-UltraBlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-BlackItalic.eot');
+  src: local('PFEncoreSansPro-BlackItalic'),
+      url('./assets/fonts/PFEncoreSansPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-BlackItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-BlackItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro UltraThin';
+  src: url('./assets/fonts/PFEncoreSansPro-UltraThinItalic.eot');
+  src: local('PFEncoreSansPro-UltraThinItalic'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThinItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThinItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThinItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-UltraThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-MediumItalic.eot');
+  src: local('PFEncoreSansPro-MediumItalic'),
+      url('./assets/fonts/PFEncoreSansPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-MediumItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-MediumItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro Hairline';
+  src: url('./assets/fonts/PFEncoreSansPro-Hairline.eot');
+  src: local('PFEncoreSansPro-Hairline'),
+      url('./assets/fonts/PFEncoreSansPro-Hairline.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Hairline.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Hairline.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Hairline.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro bold';
+  src: url('./assets/fonts/PFEncoreSansPro-Bold.eot');
+  src: local('PFEncoreSansPro-Bold'),
+      url('./assets/fonts/PFEncoreSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Bold.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Bold.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-Regular.eot');
+  src: local('PFEncoreSansPro-Regular'),
+      url('./assets/fonts/PFEncoreSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Regular.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Regular.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Regular.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-Black.eot');
+  src: local('PFEncoreSansPro-Black'),
+      url('./assets/fonts/PFEncoreSansPro-Black.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Black.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Black.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-BoldItalic.eot');
+  src: local('PFEncoreSansPro-BoldItalic'),
+      url('./assets/fonts/PFEncoreSansPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-BoldItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-BoldItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-BoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro light';
+  src: url('./assets/fonts/PFEncoreSansPro-LightItalic.eot');
+  src: local('PFEncoreSansPro-LightItalic'),
+      url('./assets/fonts/PFEncoreSansPro-LightItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-LightItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-LightItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro Book';
+  src: url('./assets/fonts/PFEncoreSansPro-Book.eot');
+  src: local('PFEncoreSansPro-Book'),
+      url('./assets/fonts/PFEncoreSansPro-Book.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Book.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Book.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Book.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro light';
+  src: url('./assets/fonts/PFEncoreSansPro-Light.eot');
+  src: local('PFEncoreSansPro-Light'),
+      url('./assets/fonts/PFEncoreSansPro-Light.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Light.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Light.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-Italic.eot');
+  src: local('PFEncoreSansPro-Italic'),
+      url('./assets/fonts/PFEncoreSansPro-Italic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-Italic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-Italic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-Italic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro Book';
+  src: url('./assets/fonts/PFEncoreSansPro-BookItalic.eot');
+  src: local('PFEncoreSansPro-BookItalic'),
+      url('./assets/fonts/PFEncoreSansPro-BookItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-BookItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-BookItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-BookItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PF Encore Sans Pro';
+  src: url('./assets/fonts/PFEncoreSansPro-ThinItalic.eot');
+  src: local('PFEncoreSansPro-ThinItalic'),
+      url('./assets/fonts/PFEncoreSansPro-ThinItalic.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/PFEncoreSansPro-ThinItalic.woff2') format('woff2'),
+      url('./assets/fonts/PFEncoreSansPro-ThinItalic.woff') format('woff'),
+      url('./assets/fonts/PFEncoreSansPro-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+.App {
+  text-align: center;
+  font-family: 'PF Encore Sans Pro';
+}
+
+.font_pfespm {
+  font-family: 'PF Encore Sans Pro';
+}
+
+.font_pfespl {
+  font-family: 'PF Encore Sans Pro light';
+}
+
+.font_pfespb {
+  font-family: 'PF Encore Sans Pro bold';
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gray-bg {
+  background-color: rgb(242, 242, 242);
+}
+
+.t-hl-td
+{
+    color:rgb(252, 99, 94);
+}
+
+.d-u-td
+{
+    text-decoration: underline #adadad;
+}
+
+.d-n-td
+{
+    text-decoration: none;
+}
+
+.t-b
+{
+    font-weight: 700;
+}

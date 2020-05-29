@@ -1,0 +1,21 @@
+.contacts-img {
+  width: 45vw;
+  height: 38vh;
+  background-image: url(../assets/tesla_footer_contacts.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.contacts-link {
+  color: #565656;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0;
+}
+
+.contacts-link:hover {
+  color: #565656;
+  /* text-decoration: none; */
+}

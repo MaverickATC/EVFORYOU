@@ -1,0 +1,29 @@
+.card-button
+{
+    background-color:rgb(252, 99, 94);
+    border-color: rgb(252, 99, 94);
+    outline-style: none;
+    color: white;
+    border-radius: 7px;
+}
+
+.card-button:focus
+{
+    outline-style: none; 
+}
+
+.b-n
+{
+    border-color: transparent;
+}
+
+.car-specs
+{
+    list-style: none;
+    padding: 0;
+}
+
+.text-col
+{
+    color: #fd8b87;
+}

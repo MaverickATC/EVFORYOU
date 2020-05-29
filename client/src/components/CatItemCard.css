@@ -1,0 +1,40 @@
+.b-w {
+  min-width: 120px;
+}
+
+.b-bottom {
+  border-bottom: none;
+  font-size: 1rem;
+}
+
+.nav-tabs .nav-link {
+  color: #575757;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fc635e;
+  background-color: transparent;
+  border-bottom: #fc635e;
+}
+
+.width-5 {
+  max-width: 15%;
+}
+
+.react-viewer-icon-reset {
+  display: none;
+}
+
+.cat-text-gray {
+  color: #575757;
+}
+
+.cat-text-red {
+  color: #fc635e;
+}
+
+.text-b{
+    font-size: 1.5rem;
+}

@@ -1,0 +1,40 @@
+.text-red {
+    color: #fc635e;
+  }
+
+  .item-price{
+      font-size: 1.5rem;
+  }
+
+  .item-specs{
+      list-style: none;
+  }
+
+  .item-model{
+    font-size: 1.25rem;
+  }
+
+  .item-img{
+      max-width: 80%;
+  }
+  
+  .cat-item-text-black{
+      color: #000;
+  }
+
+  .cat-item-text-red{
+      color: #fc635e;
+  }
+
+  .items-list{
+      margin: 0;
+      padding: 0;
+  }
+
+  .item-btn {
+    background-color: rgb(252, 99, 94);
+    border-color: rgb(252, 99, 94);
+    outline-style: none;
+    color: white;
+    border-radius: 7px;
+  }

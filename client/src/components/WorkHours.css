@@ -1,0 +1,19 @@
+.wh-wrapper{
+    position: absolute;
+    width: 230px;
+    height: 330px;
+    background-color: white;
+    top: -60%;
+    left: 10%;
+    border-top: 3px solid red;
+    z-index: 500;
+} 
+
+.light_grey {
+    /* color: #4b4b4b; */
+    color: #2c2f33;
+}
+
+.light_red {
+    color: #fc635e;
+}

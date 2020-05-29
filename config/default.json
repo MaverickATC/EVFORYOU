@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "mongoURI": "mongodb+srv://evforyouAdmin:TESLA2020_ADMIN@cluster0-2qtgy.azure.mongodb.net/app?retryWrites=true&w=majority",
+    "jwtSecret": "EvforyouToken"
+}
