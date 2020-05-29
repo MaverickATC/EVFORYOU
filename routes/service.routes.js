@@ -33,6 +33,7 @@ router.post("/del/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const service = await ClientService.find();
+
     res.json(service);
   } catch (e) {
     res.status(500).json({ message: "smth went wrong, try again" });

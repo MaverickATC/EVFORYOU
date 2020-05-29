@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 
 export const AdmMenu = () => {
   const history = useHistory();
@@ -13,41 +14,30 @@ export const AdmMenu = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light">
-      <span className="navbar-brand">
-        Admin panel
-      </span>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <NavLink className="nav-link" to="/adm/cars">
-              Cars <span className="sr-only">(current)</span>
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/adm/add">
-              Add
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link ml-5" href="/adm" onClick={logoutHandler}>
-              LogOut
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <Navbar bg="light" expand="md">
+      <Navbar.Brand href="">Admin panel</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/adm/cars">Cars</Nav.Link>
+          <Nav.Link href="/adm/clients">Clients</Nav.Link>
+          <NavDropdown title="Requests" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/adm/service">Service</NavDropdown.Item>
+            <NavDropdown.Item href="/adm/questions">
+              Questions
+            </NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown title="Add" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/adm/add">Add car</NavDropdown.Item>
+            <NavDropdown.Item href="/adm/client/add">
+              Add client
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="/adm" className="ml-5" onClick={logoutHandler}>
+            LogOut
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };

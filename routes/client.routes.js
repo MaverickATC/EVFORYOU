@@ -19,6 +19,7 @@ router.post("/add", async (req, res) => {
     const client = new Client({
       phone: data.phone,
       email: data.email,
+      remark: data.remark,
       fullName
     });
     await client.save();

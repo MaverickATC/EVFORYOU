@@ -2,22 +2,22 @@ import React, { useState, useCallback, useEffect } from "react";
 import { AdmMenu } from "../components/AdmMenu";
 import { useHttp } from "../hooks/http.hook";
 import { Loader } from "../components/Loader";
-import { CarsList } from "../components/CarsList";
+import { ClientsList } from "../components/ClientsList";
 
-export const CarsPage = () => {
-  const [cars, setCars] = useState([]);
+export const ClientsPage = () => {
+  const [clients, setClients] = useState([]);
   const { request, loading } = useHttp();
 
-  const fetchCars = useCallback(async () => {
+  const fetchClients = useCallback(async () => {
     try {
-      const fetched = await request("/api/car", "GET", null, {});
-      setCars(fetched);
+      const fetched = await request("/api/client", "GET", null, {});
+      setClients(fetched);
     } catch (e) {}
   }, [request]);
 
   useEffect(() => {
-    fetchCars();
-  }, [fetchCars]);
+    fetchClients();
+  }, [fetchClients]);
 
   if (loading) {
     return <Loader />;
@@ -26,8 +26,8 @@ export const CarsPage = () => {
   return (
     <>
       <AdmMenu />
-      <h1>Cars</h1>
-      {!loading && <CarsList cars={cars} />}
+      <h1> Clients </h1>
+      {!loading && <ClientsList clients={clients} />}
     </>
   );
 };

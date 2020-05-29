@@ -5,6 +5,7 @@ const schema = new Schema({
   phone: { type: String, required: true, unique: true },
   email: { type: String, required: true },
   fullName: { type: String, required: true },
+  remark: { type: String, required: false },
 });
 
 module.exports = model("Client", schema);

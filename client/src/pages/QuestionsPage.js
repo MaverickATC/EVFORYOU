@@ -2,22 +2,22 @@ import React, { useState, useCallback, useEffect } from "react";
 import { AdmMenu } from "../components/AdmMenu";
 import { useHttp } from "../hooks/http.hook";
 import { Loader } from "../components/Loader";
-import { CarsList } from "../components/CarsList";
+import { QuestionsList } from "../components/QuestionsList";
 
-export const CarsPage = () => {
-  const [cars, setCars] = useState([]);
+export const QuestionsPage = () => {
+  const [asks, setAsks] = useState([]);
   const { request, loading } = useHttp();
 
-  const fetchCars = useCallback(async () => {
+  const fetchAsks = useCallback(async () => {
     try {
-      const fetched = await request("/api/car", "GET", null, {});
-      setCars(fetched);
+      const fetched = await request("/api/question", "GET", null, {});
+      setAsks(fetched);
     } catch (e) {}
   }, [request]);
 
   useEffect(() => {
-    fetchCars();
-  }, [fetchCars]);
+    fetchAsks();
+  }, [fetchAsks]);
 
   if (loading) {
     return <Loader />;
@@ -26,8 +26,8 @@ export const CarsPage = () => {
   return (
     <>
       <AdmMenu />
-      <h1>Cars</h1>
-      {!loading && <CarsList cars={cars} />}
+      <h1>Questions</h1>
+      {!loading && <QuestionsList asks={asks} />}
     </>
   );
 };
