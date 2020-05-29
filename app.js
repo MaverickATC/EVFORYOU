@@ -13,6 +13,8 @@ app.use("/api/client/service", require("./routes/service.routes"));
 app.use("/api/client/question", require("./routes/questions.routes"));
 app.use("/api/client/td", require("./routes/td.routes"));
 app.use("/api/client/buy", require("./routes/buy.routes"));
+app.use(express.static(__dirname));
+app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, 'build')));
 
 const PORT = config.get("port") || 5000;
@@ -24,11 +26,14 @@ async function start() {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-    app.listen(PORT, () => console.log(`app started on port ${PORT}`));
+    
 
-    app.get('/', (req, res) => {
+    app.get('/*', (req, res) => {
       res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
+
+    app.listen(PORT, () => console.log(`app started on port ${PORT}`));
+
   } catch (e) {
     console.log("Server error", e.message);
     process.exit(1);
