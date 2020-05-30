@@ -38,3 +38,13 @@
 .text-b{
     font-size: 1.5rem;
 }
+
+.c-it-wrap{
+  height: 260px;
+}
+
+@media(max-width:767px){
+  .c-it-wrap{
+    height:180px;
+  }
+}

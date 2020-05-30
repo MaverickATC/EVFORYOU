@@ -9,9 +9,9 @@ export default class TDCarouselItem extends Component {
         <img
           src={this.props.item.testdriveImgPath}
           alt="Car"
-          max-width="220"
-          max-height="125"
-          className="img-fluid px-1 op-7"
+          max-width="175"
+          max-height="100"
+          className="img-fluid-td px-1 op-7"
           onClick={(e) => {
              e.preventDefault();
              document.querySelectorAll("#cars .img-fluid").forEach(element => {

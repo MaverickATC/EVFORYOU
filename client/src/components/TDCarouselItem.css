@@ -1,3 +1,8 @@
-.op-7{
-    opacity: 0.75;
+.op-7 {
+  opacity: 0.75;
+}
+
+.img-fluid-td {
+  max-width: 80%;
+  height: auto;
 }

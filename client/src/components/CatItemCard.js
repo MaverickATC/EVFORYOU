@@ -42,9 +42,51 @@ export default class CatItemCard extends Component {
           <h2 id="model-showed" className="card-title mb-5">
             {car.model}
           </h2>
+          <div className="container">
           <div className="row mb-5 no-gutters justify-content-around">
             <div className="col-12 col-sm-12 col-md-12 col-lg-6">
-              <div className="row-cols-1">
+              
+              <div className="c-it-wrap">
+              <img
+                  src={car.catalogImgsPathArr[0]}
+                  id="target"
+                  className="img-fluid d-inline"
+                  alt="Car"
+                  
+                />
+              </div>
+              <div className="row mx-0 px-0" style={{height:'100px'}}>
+                <div className="col-4" style={{lineHeight:'100px'}}>
+                <span><img
+                    src={car.catalogImgsPathArr[0]}
+                    className="img-fluid"
+                    alt="Car"
+                    onClick={this.handleClick}
+                    
+                  /></span>
+
+                </div>
+                <div className="col-4" style={{lineHeight:'100px'}}>
+                <span><img
+                    src={car.catalogImgsPathArr[1]}
+                    className="img-fluid"
+                    alt="Car"
+                    onClick={this.handleClick}
+                    style={{maxWidth:"80%"}}
+                  /></span>
+                </div>
+                <div className="col-4" style={{lineHeight:'100px'}}>
+                <span><img
+                    src={car.catalogImgsPathArr[2]}
+                    className="img-fluid"
+                    alt="Car"
+                    onClick={this.handleClick}
+                    
+                  /></span>
+                </div>
+              </div>
+              
+              {/* <div className="row-cols-1" style={{height:'260px'}}>
                 <img
                   src={car.catalogImgsPathArr[0]}
                   id="target"
@@ -53,38 +95,42 @@ export default class CatItemCard extends Component {
                 />
               </div>
               <div className="row">
-                <div className="col">
-                  <img
+                <div className="col" style={{eight:'100px'}}>
+                <span><img
                     src={car.catalogImgsPathArr[0]}
-                    className="card-img"
+                    className="card-img img-fluid"
                     alt="Car"
                     onClick={this.handleClick}
-                  />
+                    height="100px"
+                  /></span>
+                  
                 </div>
-                <div className="col">
-                  <img
+                <div className="col" style={{lineHeight:'100px'}}>
+                <span><img
                     src={car.catalogImgsPathArr[1]}
-                    className="card-img"
+                    className="card-img img-fluid"
                     alt="Car"
                     onClick={this.handleClick}
-                  />
+                  /></span>
+                  
                 </div>
-                <div className="col">
-                  <img
+                <div className="col" style={{lineHeight:'100px'}}>
+                <span><img
                     src={car.catalogImgsPathArr[2]}
-                    className="card-img"
+                    className="card-img img-fluid"
                     alt="Car"
                     onClick={this.handleClick}
-                  />
+                  /></span>
+                  
                 </div>
-              </div>
+              </div> */}
             </div>
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-12 col-sm-10 col-md-10 col-lg-5">
               <div className="card-body text-center pt-0">
-                <h5 className="card-title mb-4 text-center text-md-left cat-text-gray text-b">
+                <h4 className="card-title mb-1 mb-lg-4 text-center text-lg-left cat-text-gray text-b mt-5 mt-lg-0">
                   ЦЕНА:
                   <span className="cat-text-red">&nbsp;{car.price}&nbsp;</span>$
-                </h5>
+                </h4>
                 <div className="row justify-content-center my-3">
                   <div className="col-12 col-md-6 text-center">
                     <ul className="car-specs">
@@ -165,6 +211,7 @@ export default class CatItemCard extends Component {
               </div>
             </div>
           </div>
+          </div>
           <Container className="font_pfespl">
             <Tabs
               id="tab"
@@ -177,7 +224,7 @@ export default class CatItemCard extends Component {
               </Tab>
               <Tab eventKey="charcs" title="Характеристики">
                 <div className="row">
-                  <div className="col-12 col-md-6">
+                  <div className="col-12 col-md-4">
                     <ul className="text-left mb-0">
                       <li className="text-red">
                         <span style={{ color: "#000" }}>

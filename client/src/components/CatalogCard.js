@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 export default class CatalogCard extends Component {
   render() {
     return (
-      <div className="bg-white py-3 mx-1 font_pfespl">
+      <div className="bg-white py-3 font_pfespl col-10">
         <h4 className="item-price text-red mb-3">{this.props.item.price}$</h4>
         <img
           src={this.props.item.testdriveImgPath}
-          max-width="220"
+          // max-width="220"
           className="img-fluid mt-3 item-img mx-auto"
         />
         <h5 className="item-model my-3">{this.props.item.model}</h5>

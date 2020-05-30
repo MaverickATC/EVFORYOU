@@ -98,11 +98,13 @@ export const Catalog = ({ select }) => {
       <h4 className="d-u-td">ДОСТУПНЫХ ЭЛЕКТРОМОБИЛЕЙ</h4>
 
       <div className="mt-5 pb-5">
+        <div className="col-10 mx-auto">
         <Slider {...settings} className="mx-3">
           {cars.map((car, index) => (
             <CatalogCard key={index} item={car} selected={select} />
           ))}
         </Slider>
+        </div>
       </div>
     </Container>
   );
