@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AdmMenu } from "../components/AdmMenu";
-import { Button, Form, Container, Col, Tab, Tabs } from "react-bootstrap";
+import { Button, Form, Container } from "react-bootstrap";
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook";
-import { useHistory } from "react-router-dom";
 
 export const AddClientPage = () => {
   const [form, setForm] = useState({
     firstName: "",
-    lastName: "",
     email: "",
     phone: "",
     remark: "",
@@ -16,7 +14,6 @@ export const AddClientPage = () => {
 
   const { loading, error, request, clearError } = useHttp();
   const message = useMessage();
-  const history = useHistory();
 
   useEffect(() => {
     message(error);
@@ -39,7 +36,7 @@ export const AddClientPage = () => {
       <AdmMenu />
       <h1 className="mt-3 mb-5">Add client</h1>
       <Container className="m-auto">
-        <Form >
+        <Form>
           <Form.Group controlId="formBasicFirstName">
             <Form.Control
               className="form-rounding"
@@ -59,19 +56,9 @@ export const AddClientPage = () => {
               disabled={loading}
               value={form.phone}
             />
-            <Form.Text className="text-muted">+38-xxx-xx-xx</Form.Text>
+            <Form.Text className="text-muted">xxx-xxx-xxxx</Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="formBasicLastName">
-            <Form.Control
-              className="form-rounding"
-              placeholder="Фамилия"
-              name="lastName"
-              onChange={changeHandler}
-              disabled={loading}
-              value={form.lastName}
-            />
-          </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Control
               className="form-rounding"

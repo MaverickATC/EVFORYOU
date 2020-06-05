@@ -18,6 +18,7 @@ function SampleNextArrow(props) {
       style={{ ...style, display: "block", background: "transparent", width: '24px', height:"24px"}}
       onClick={onClick}
       src={right_btn}
+      alt=""
     />
     </div>
   );
@@ -32,6 +33,7 @@ function SamplePrevArrow(props) {
       style={{ ...style, display: "block", background: "transparent", width: '24px', height:"24px" }}
       onClick={onClick}
       src={left_btn}
+      alt=""
     />
     </div>
   );
@@ -74,7 +76,7 @@ export const TDCarousel = () => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
           arrows: false,

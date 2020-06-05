@@ -7,15 +7,16 @@ const router = Router();
 router.post("/add", async (req, res) => {
   try {
     const data = req.body;
-
     const candidate = await Client.findOne({phone: data.phone});
 
     if (candidate) {
       return res.status(400).json({ message: "Client is currently exists" });
     }
 
-    const fullName = `${data.lastName} ${data.firstName}`;
-
+    const fullName = data.firstName;
+    if(!data.email){
+      data.email = '';
+    }
     const client = new Client({
       phone: data.phone,
       email: data.email,
@@ -30,10 +31,35 @@ router.post("/add", async (req, res) => {
   }
 });
 
+//  client
+//  auto add to db
+router.post("/add/auto", async (req, res) => {
+  try {
+    const data = req.body;
+    const candidate = await Client.findOne({phone: data.phone.value});
+
+    if (candidate) {
+      return res.status(400).json({ message: "Client is currently exists" });
+    }
+
+    const fullName = data.firstName.value;
+    
+    
+    const client = new Client({
+      phone: data.phone.value,
+      fullName
+    });
+    await client.save();
+
+    res.status(201).json({ client });
+  } catch (e) {
+    res.status(500).json({ message: "smth went wrong, try again", e });
+  }
+});
+
 //  delete one item by id
 router.post("/del/:id", async (req, res) => {
   try {
-    console.log(req.params.id);
     await Client.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: "deleted" });
   } catch (e) {

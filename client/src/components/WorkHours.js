@@ -7,16 +7,13 @@ export default class WorkHours extends Component {
     return (
       <div className="wh-wrapper">
         <div className="pt-3 pr-4 pl-4 light_grey">
-          <img className="img-fluid" src={logo} />
+          <img className="img-fluid" src={logo} alt="" />
           <p className="pt-3 my-0" style={{ fontSize: "14px" }}>
             “Мы осуществляем продажу электромобилей в наличии и под заказ как
             новых, так и бывших в употреблении.”
           </p>
-          <p className="my-0">
-            <i
-              className="fas fa-calendar-alt d-inline pr-2 light_red"
-              style={{ fontSize: "40px" }}
-            ></i>
+          <p className="mb-0 mt-3">
+            
             <span style={{ fontSize: "16px" }}>Режим работы</span>
           </p>
           <p className="my-0">

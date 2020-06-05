@@ -1,13 +1,8 @@
-import React, { useState, useEffect, useCallback, Component } from "react";
-import { Button, Row, Container, Tab, Tabs } from "react-bootstrap";
+import React, { Component } from "react";
+import { Button, Container, Tab, Tabs } from "react-bootstrap";
 import SpecsItem from "./SpecsItem";
 import CatItemGallery from "./CatItemGallery";
-
 import "./CatItemCard.css";
-import { useHttp } from "../hooks/http.hook";
-import { useParams } from "react-router-dom";
-import { Loader } from "./Loader";
-
 import pic1 from "../assets/cat-body.png";
 import pic2 from "../assets/cat-drive.png";
 import pic3 from "../assets/cat-seats.png";
@@ -22,18 +17,19 @@ export default class CatItemCard extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { key: "desc", modalShow: false, buy: false };
-
+    this.state = { key: "photo", modalShow: false, buy: false };
+    
     this.handleClick = this.handleClick.bind(this);
   }
 
+  
   handleClick = (e) => {
     document.getElementById("target").setAttribute("src", e.currentTarget.src);
   };
 
   render() {
     const car = this.props.car;
-
+    
     return (
       <Container>
         <h2 className="pt-3 t-hl-bf">ОПИСАНИЕ</h2>
@@ -43,174 +39,141 @@ export default class CatItemCard extends Component {
             {car.model}
           </h2>
           <div className="container">
-          <div className="row mb-5 no-gutters justify-content-around">
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6">
-              
-              <div className="c-it-wrap">
-              <img
-                  src={car.catalogImgsPathArr[0]}
-                  id="target"
-                  className="img-fluid d-inline"
-                  alt="Car"
-                  
-                />
-              </div>
-              <div className="row mx-0 px-0" style={{height:'100px'}}>
-                <div className="col-4" style={{lineHeight:'100px'}}>
-                <span><img
+            <div className="row mb-5 no-gutters justify-content-around">
+              <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+                <div className="c-it-wrap">
+                  <img
                     src={car.catalogImgsPathArr[0]}
-                    className="img-fluid"
+                    id="target"
+                    className="img-fluid d-inline"
                     alt="Car"
-                    onClick={this.handleClick}
-                    
-                  /></span>
-
-                </div>
-                <div className="col-4" style={{lineHeight:'100px'}}>
-                <span><img
-                    src={car.catalogImgsPathArr[1]}
-                    className="img-fluid"
-                    alt="Car"
-                    onClick={this.handleClick}
-                    style={{maxWidth:"80%"}}
-                  /></span>
-                </div>
-                <div className="col-4" style={{lineHeight:'100px'}}>
-                <span><img
-                    src={car.catalogImgsPathArr[2]}
-                    className="img-fluid"
-                    alt="Car"
-                    onClick={this.handleClick}
-                    
-                  /></span>
-                </div>
-              </div>
-              
-              {/* <div className="row-cols-1" style={{height:'260px'}}>
-                <img
-                  src={car.catalogImgsPathArr[0]}
-                  id="target"
-                  className="card-img img-fluid"
-                  alt="Car"
-                />
-              </div>
-              <div className="row">
-                <div className="col" style={{eight:'100px'}}>
-                <span><img
-                    src={car.catalogImgsPathArr[0]}
-                    className="card-img img-fluid"
-                    alt="Car"
-                    onClick={this.handleClick}
-                    height="100px"
-                  /></span>
-                  
-                </div>
-                <div className="col" style={{lineHeight:'100px'}}>
-                <span><img
-                    src={car.catalogImgsPathArr[1]}
-                    className="card-img img-fluid"
-                    alt="Car"
-                    onClick={this.handleClick}
-                  /></span>
-                  
-                </div>
-                <div className="col" style={{lineHeight:'100px'}}>
-                <span><img
-                    src={car.catalogImgsPathArr[2]}
-                    className="card-img img-fluid"
-                    alt="Car"
-                    onClick={this.handleClick}
-                  /></span>
-                  
-                </div>
-              </div> */}
-            </div>
-            <div className="col-12 col-sm-10 col-md-10 col-lg-5">
-              <div className="card-body text-center pt-0">
-                <h4 className="card-title mb-1 mb-lg-4 text-center text-lg-left cat-text-gray text-b mt-5 mt-lg-0">
-                  ЦЕНА:
-                  <span className="cat-text-red">&nbsp;{car.price}&nbsp;</span>$
-                </h4>
-                <div className="row justify-content-center my-3">
-                  <div className="col-12 col-md-6 text-center">
-                    <ul className="car-specs">
-                      <SpecsItem
-                        pic={pic1}
-                        s_title="Тип кузова"
-                        s_content={car.bodyType}
-                      />
-                      <SpecsItem
-                        pic={pic2}
-                        s_title="Тип привода"
-                        s_content={car.drive}
-                      />
-                      <SpecsItem
-                        pic={pic3}
-                        s_title="Кол-во мест"
-                        s_content={`${car.seats} пассажиров`}
-                      />
-                      <SpecsItem
-                        pic={pic4}
-                        s_title="Макс. скорость"
-                        s_content={`${car.maxSpeed} км/ч`}
-                      />
-                    </ul>
-                  </div>
-                  <div className="col-12 col-md-6 text-center">
-                    <ul className="car-specs">
-                      <SpecsItem
-                        pic={pic5}
-                        s_title="КПП"
-                        s_content={car.gear}
-                      />
-                      <SpecsItem
-                        pic={pic6}
-                        s_title="Мощность"
-                        s_content={car.power}
-                      />
-                      <SpecsItem
-                        pic={pic7}
-                        s_title="Разгон до 100 км/ч"
-                        s_content={`${car.start} сек`}
-                      />
-                      <SpecsItem
-                        pic={pic8}
-                        s_title="Запас хода"
-                        s_content={`${car.maxCharge} км`}
-                      />
-                    </ul>
-                  </div>
-                </div>
-                <div className="row justify-content-center">
-                  <Button
-                    variant="danger"
-                    className="card-button mr-3 ml-3 mt-3 b-w"
-                    onClick={() => {
-                      this.setState({ modalShow: true });
-                      this.setState({ buy: true });
-                    }}
-                  >
-                    Купить
-                  </Button>
-                  <Button
-                    variant="outline-danger"
-                    className="form-button-send mr-3 ml-3 mt-3 b-w"
-                    onClick={() => {
-                      this.setState({ modalShow: true });
-                      this.setState({ buy: false });
-                    }}
-                  >
-                    Тест-драйв
-                  </Button>
-                  <CatalogModal
-                    buy={this.state.buy}
-                    show={this.state.modalShow}
-                    onHide={() => this.setState({ modalShow: false })}
                   />
                 </div>
+                <div className="row mx-0 px-0" style={{ height: "100px" }}>
+                  <div className="col-4" style={{ lineHeight: "100px" }}>
+                    <span>
+                      <img
+                        src={car.catalogImgsPathArr[0]}
+                        className="img-fluid"
+                        alt="Car"
+                        onClick={this.handleClick}
+                      />
+                    </span>
+                  </div>
+                  <div className="col-4" style={{ lineHeight: "100px" }}>
+                    <span>
+                      <img
+                        src={car.catalogImgsPathArr[1]}
+                        className="img-fluid"
+                        alt="Car"
+                        onClick={this.handleClick}
+                        style={{ maxWidth: "80%" }}
+                      />
+                    </span>
+                  </div>
+                  <div className="col-4" style={{ lineHeight: "100px" }}>
+                    <span>
+                      <img
+                        src={car.catalogImgsPathArr[2]}
+                        className="img-fluid"
+                        alt="Car"
+                        onClick={this.handleClick}
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-sm-10 col-md-10 col-lg-5">
+                <div className="card-body text-center pt-0">
+                  <h4 className="card-title mb-1 mb-lg-4 text-center text-lg-left cat-text-gray text-b mt-5 mt-lg-0">
+                    ЦЕНА:
+                    <span className="cat-text-red">
+                      &nbsp;{car.price}&nbsp;
+                    </span>
+                    $
+                  </h4>
+                  <div className="row justify-content-center my-3">
+                    <div className="col-12 col-md-6 text-center">
+                      <ul className="car-specs">
+                        <SpecsItem
+                          pic={pic1}
+                          s_title="Тип кузова"
+                          s_content={car.bodyType}
+                        />
+                        <SpecsItem
+                          pic={pic2}
+                          s_title="Тип привода"
+                          s_content={car.drive}
+                        />
+                        <SpecsItem
+                          pic={pic3}
+                          s_title="Кол-во мест"
+                          s_content={`${car.seats} пассажиров`}
+                        />
+                        <SpecsItem
+                          pic={pic4}
+                          s_title="Макс. скорость"
+                          s_content={`${car.maxSpeed} км/ч`}
+                        />
+                      </ul>
+                    </div>
+                    <div className="col-12 col-md-6 text-center">
+                      <ul className="car-specs">
+                        <SpecsItem
+                          pic={pic5}
+                          s_title="КПП"
+                          s_content={car.gear}
+                        />
+                        <SpecsItem
+                          pic={pic6}
+                          s_title="Мощность"
+                          s_content={car.power}
+                        />
+                        <SpecsItem
+                          pic={pic7}
+                          s_title="Разгон до 100 км/ч"
+                          s_content={`${car.start} сек`}
+                        />
+                        <SpecsItem
+                          pic={pic8}
+                          s_title="Запас хода"
+                          s_content={`${car.maxCharge} км`}
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="row justify-content-center">
+                    <Button
+                      variant="danger"
+                      className="card-button mr-3 ml-3 mt-3 b-w"
+                      onClick={() => {
+                        this.setState({ modalShow: true });
+                        this.setState({ buy: true });
+                      }}
+                    >
+                      Купить
+                    </Button>
+                    <Button
+                      variant="outline-danger"
+                      className="form-button-send mr-3 ml-3 mt-3 b-w"
+                      onClick={() => {
+                        this.setState({ modalShow: true });
+                        this.setState({ buy: false });
+                      }}
+                    >
+                      Тест-драйв
+                    </Button>
+                    <CatalogModal
+                      buy={this.state.buy}
+                      model={car.model}
+                      carId={car._id}
+                      show={this.state.modalShow}
+                      onHide={() => this.setState({ modalShow: false })}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
           </div>
           <Container className="font_pfespl">
             <Tabs
@@ -219,6 +182,9 @@ export default class CatItemCard extends Component {
               activeKey={this.state.key}
               onSelect={(k) => this.setState({ key: k })}
             >
+              <Tab eventKey="photo" title="Фото">
+                <CatItemGallery photos={car.galleryImgsPathArr} />
+              </Tab>
               <Tab className="" eventKey="desc" title="Описание">
                 <p className="text-center">{car.description}</p>
               </Tab>
@@ -347,9 +313,6 @@ export default class CatItemCard extends Component {
                     </ul>
                   </div>
                 </div>
-              </Tab>
-              <Tab eventKey="photo" title="Фото">
-                <CatItemGallery photos={car.galleryImgsPathArr} />
               </Tab>
             </Tabs>
           </Container>

@@ -1,6 +1,6 @@
 const express = require("express");
 //for heroku
-const path = require('path');
+//const path = require('path');
 //
 const config = require("config");
 const mongoose = require("mongoose");
@@ -17,12 +17,12 @@ app.use("/api/td", require("./routes/td.routes"));
 app.use("/api/buy", require("./routes/buy.routes"));
 
 //for heroku
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
+//app.use(express.static(__dirname));
+//app.use(express.static(path.join(__dirname, 'build')));
 
-const PORT = process.env.PORT || 8080;
+//const PORT = process.env.PORT || 8080;
 //////
-//const PORT = config.get('port') || 5000;
+const PORT = config.get('port') || 5000;
 
 async function start() {
   try {
@@ -33,9 +33,9 @@ async function start() {
     });
     
 //for heroku
-     app.get('/*', (req, res) => {
-       res.sendFile(path.join(__dirname, 'build', 'index.html'));
-     });
+    //  app.get('/*', (req, res) => {
+    //    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    //  });
 ///
     app.listen(PORT, () => console.log(`app started on port ${PORT}`));
 

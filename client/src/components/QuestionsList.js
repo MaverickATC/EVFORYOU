@@ -1,28 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useHttp } from "../hooks/http.hook";
-import { useHistory } from "react-router-dom";
 
-export const QuestionsList = ({ asks }) => {
-  const { request } = useHttp();
-  const history = useHistory();
+export const QuestionsList = (props) => {
 
-  const handleDelete = async (id) => {
-    try {
-      await request(`/api/client/service/del/${id}`, "POST", null, {});
-      return history.push(`/adm/questions`);
-    } catch (e) {}
-  };
-
-  if (!asks.length) {
+  if (!props.asks.length) {
     return <p>Запросов пока нет</p>;
   }
 
   return (
     <Container>
       <ul className="car-specs">
-        {asks.map((ask, index) => {
+        {props.asks.map((ask, index) => {
           return (
             <li key={index}>
               <hr />
@@ -38,7 +26,7 @@ export const QuestionsList = ({ asks }) => {
                   variant="danger"
                   className="ml-5 mt-3"
                   onClick={() => {
-                    handleDelete(ask._id);
+                    props.delete(ask._id);
                   }}
                 >
                   {" "}

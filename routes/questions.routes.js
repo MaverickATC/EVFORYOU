@@ -8,15 +8,13 @@ router.post("/add", async (req, res) => {
   try {
     const data = req.body;
 
-    const fullName = `${data.lastName} ${data.firstName}`;
+    const fullName = data.firstName.value;
 
     const question = new Question({
-      phone: data.phone,
-      email: data.email,
-      question: data.question,
+      phone: data.phone.value,
+      question: data.question.value,
       fullName,
     });
-    console.log(question)
     await question.save();
 
     res.status(201).json({ question });
@@ -28,7 +26,6 @@ router.post("/add", async (req, res) => {
 //  delete one item by id
 router.post("/del/:id", async (req, res) => {
   try {
-    console.log(req.params.id);
     await Question.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: "deleted" });
   } catch (e) {

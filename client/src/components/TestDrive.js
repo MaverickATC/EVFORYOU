@@ -1,9 +1,7 @@
 import "./TestDrive.css";
-import React, { Component, useState, useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 import { TDCarousel } from "./TDCarousel";
-import { useHttp } from "../hooks/http.hook";
-import { Loader } from "./Loader";
 import { Link } from "react-router-dom";
 
 export const TestDrive = () => {

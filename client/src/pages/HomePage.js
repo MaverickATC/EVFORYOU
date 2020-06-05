@@ -4,7 +4,7 @@ import Menu from "../components/Menu";
 import { Container, Button } from "react-bootstrap";
 import { TestDrive } from "../components/TestDrive";
 import Benefits from "../components/Benefits";
-import ActualIncomes from "../components/ActualIncomes";
+//import ActualIncomes from "../components/ActualIncomes";
 import Service from "../components/Service";
 import { Questions } from "../components/Questions";
 
@@ -48,7 +48,19 @@ export default class HomePage extends Component {
         </div>
         <TestDrive />
         <Benefits />
-        <ActualIncomes />
+
+        {/* для аукциона*/}
+        {/* <ActualIncomes /> */}
+
+        {/*замена для аукциона */}
+        {/* <Container className="text-center">
+          <h2 className="d-u-td pt-5">
+            КАРТИНКА <span className="t-hl-bf ">TESLA</span>
+          </h2>
+          <img src="" alt="Tesla picture" />
+          <p className="font_pfespl">Some text</p>
+        </Container> */}
+
         <Service />
         <Questions />
       </div>

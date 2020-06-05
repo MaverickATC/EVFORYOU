@@ -6,9 +6,12 @@ const router = Router();
 router.post("/add", async (req, res) => {
   try {
     const data = req.body;
-    const fullName = `${data.lastName} ${data.firstName}`;
+    const fullName = data.firstName.value;
     const service = new ClientService({
-       ...data, fullName
+       fullName, 
+       phone: data.phone.value,
+       question: data.question.value,
+       time: data.time
     });
     await service.save();
 
@@ -21,7 +24,6 @@ router.post("/add", async (req, res) => {
 //  delete one item by id
 router.post("/del/:id", async (req, res) => {
   try {
-    console.log(req.params.id);
     await ClientService.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: "deleted" });
   } catch (e) {

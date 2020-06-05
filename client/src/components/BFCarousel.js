@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import BFCarouselItem from "./BFCarouselItem";
 import car1 from "../assets/bfs-1.png";
 import car2 from "../assets/bfs-2.png";
 import car3 from "../assets/bfs-3.png";
@@ -15,7 +14,7 @@ export default class BFCarousel extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 9000,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -91,9 +90,9 @@ export default class BFCarousel extends Component {
                     {slides[0].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[0].spans.map((span) => (
+                    {slides[0].spans.map((span,index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -101,12 +100,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white1"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[0].img} className="pic" />
+                <img src={slides[0].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>
@@ -118,9 +115,9 @@ export default class BFCarousel extends Component {
                     {slides[1].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[1].spans.map((span) => (
+                    {slides[1].spans.map((span,index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -128,12 +125,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white2"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[1].img} className="pic" />
+                <img src={slides[1].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>
@@ -145,9 +140,9 @@ export default class BFCarousel extends Component {
                     {slides[2].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[2].spans.map((span) => (
+                    {slides[2].spans.map((span,index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -155,12 +150,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white3"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[2].img} className="pic" />
+                <img src={slides[2].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>
@@ -172,9 +165,9 @@ export default class BFCarousel extends Component {
                     {slides[3].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[3].spans.map((span) => (
+                    {slides[3].spans.map((span,index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -182,12 +175,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white4"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[3].img} className="pic" />
+                <img src={slides[3].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>
@@ -199,9 +190,9 @@ export default class BFCarousel extends Component {
                     {slides[4].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[4].spans.map((span) => (
+                    {slides[4].spans.map((span,index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -209,12 +200,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white5"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[4].img} className="pic" />
+                <img src={slides[4].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>
@@ -226,9 +215,9 @@ export default class BFCarousel extends Component {
                     {slides[5].header}
                   </h5>
                   <ul className="font_pfespl">
-                    {slides[5].spans.map((span) => (
+                    {slides[5].spans.map((span, index) => (
                       <li
-                        key={span.indexOf()}
+                        key={index}
                         className="mb-3 text-left text-red"
                       >
                         <span className="text-75">{span}</span>
@@ -236,12 +225,10 @@ export default class BFCarousel extends Component {
                     ))}
                   </ul>
                 </div>
-
-                {/* <div className="white6"></div> */}
                 <div className="red"></div>
               </Col>
               <Col className="col-12 col-md-6 bg-white p-0">
-                <img src={slides[5].img} className="pic" />
+                <img src={slides[5].img} alt="" className="pic img-fluid" />
               </Col>
             </Row>
           </div>

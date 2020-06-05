@@ -10,78 +10,98 @@ const router = Router();
 router.post(
   "/register",
   [
-    check("email", "Wrong email").isEmail(),
+    check("name", "Wrong user name").exists(),
     check("password", "Weak password(need to be 6 or more symbols)").isLength({
       min: 6,
     }),
   ],
   async (req, res) => {
     try {
-      
-
       const errors = validationResult(req);
-      
+
       if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array(), message: "Wrong registration data" });
+        return res
+          .status(400)
+          .json({ errors: errors.array(), message: "Wrong registration data" });
       }
-      const { email, password } = req.body;
+      const { name, password, admin} = req.body;
 
-      const candidate = await User.findOne({ email });
-
+      const candidate = await User.findOne({ name });
       if (candidate) {
         return res.status(400).json({ message: "User is currently exists" });
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new User({ email, password: hashedPassword });
+      
+ 
 
+      const user = new User({ name, password: hashedPassword, admin });
+   
       await user.save();
 
       res.status(201).json({ message: "User created" });
     } catch (e) {
-      res.status(500).json({ message: "Smth went wrong, try again" });
+      res.status(500).json({ message: "Smth went wrong, try again"});
     }
   }
 );
 
 //  /adm/auth/login
 router.post(
-    "/login",
-    [
-        check("email", "Enter correct email").normalizeEmail().isEmail(),
-        check("password", "Enter password").exists()
-    ],
-    async (req, res) => {
+  "/login",
+  [
+    check("name", "Enter correct user name").exists(),
+    check("password", "Enter password").exists(),
+  ],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res
+          .status(400)
+          .json({ errors: errors.array(), message: "Wrong entry data" });
+      }
+
+      const { name, password } = req.body;
+
+      const user = await User.findOne({ name });
+
+      if (!user) {
+        return res.status(400).json({ message: "User not found" });
+      }
+
+      const isMatch = await bcrypt.compare(password, user.password);
+
+      if (!isMatch) {
+        return res.status(400).json({ message: "Wrong password" });
+      }
+
+      const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+        expiresIn: "1h",
+      });
+
+      res.json({ token, userId: user.id, isAdmin: user.admin });
+    } catch (e) {
+      res.status(500).json({ message: "smth went wrong, try again" });
+    }
+  }
+);
+
+//  delete one item by id
+router.post("/del/:id", async (req, res) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res
-        .status(400)
-        .json({ errors: errors.array(), message: "Wrong entry data" });
-    }
+    await User.deleteOne({ _id: req.params.id });
+    res.status(201).json({ message: "deleted" });
+  } catch (e) {
+    res.status(500).json({ message: "smth went wrong, try again", e });
+  }
+});
 
-    const {email, password} = req.body;
-
-    const user = await User.findOne({email});
-
-    if(!user){
-        return res.status(400).json({message:"User not found"});
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if(!isMatch){
-        return res.status(400).json({message:"Wrong password"});
-    }
-
-    const token = jwt.sign(
-        {userId: user.id},
-        config.get("jwtSecret"),
-        {expiresIn: "1h"}
-    )
-
-    res.json({token, userId: user.id});
-
+//  get all
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
   } catch (e) {
     res.status(500).json({ message: "smth went wrong, try again" });
   }

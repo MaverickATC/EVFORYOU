@@ -7,7 +7,7 @@ import { Catalog } from "../components/Catalog";
 import FooterContacts from "../components/FooterContacts";
 import { Loader } from "../components/Loader";
 import { useHttp } from "../hooks/http.hook";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const CatalogPage = () => {
   const [carId, setCarId] = useState(useParams().id || 0);
@@ -42,18 +42,20 @@ export const CatalogPage = () => {
   return (
     <div>
       <div className="h-img">
-        <Menu page='catalog'/>
+        <Menu page="catalog" />
       </div>
+
+        <Catalog select={handleSelect} />
 
       {!loading && car && <CatItemCard car={car} />}
 
-      <Catalog select={handleSelect} />
-      <div className="d-none d-sm-block f-img">
+      <div className="d-none d-sm-block f-cat-img">
         <FooterContacts />
       </div>
       <div className="d-block d-sm-none f-img-hider">
         <FooterContacts />
       </div>
+      
     </div>
   );
 };

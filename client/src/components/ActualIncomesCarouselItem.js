@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-import pic1 from "../assets/tesla_head.jpg";
+import pic1 from "../assets/9.png";
 
 export default class ActualIncomesCarouselItem extends Component {
   render() {

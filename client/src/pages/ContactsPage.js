@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Menu from "../components/Menu";
 import GoogleMapReact from "google-map-react";
 import { Col, Row, Container } from "react-bootstrap";
-import car from "../assets/tesla_footer_contacts.png";
+import car from "../assets/4.png";
 import tel from "../assets/tel-icon.png";
 import mail from "../assets/mail-icon.png";
 import adress from "../assets/loc-icon.png";
@@ -11,6 +11,7 @@ import WorkHours from "../components/WorkHours";
 import logo from "../assets/logo-black.png";
 import insta from "../assets/insta.png";
 import facebk from "../assets/fbk.png";
+import { Pointer } from "../components/Pointer";
 
 export default class ContactsPage extends Component {
   static defaultProps = {
@@ -35,7 +36,7 @@ export default class ContactsPage extends Component {
             <Col className="col-12 col-lg-6 justify-content-end mt-5 pl-5 mx-auto font_pfespl">
               <Row className="">
                 <Col className="col-2 pt-2">
-                  <img src={tel} />
+                  <img src={tel} alt="" />
                 </Col>
                 <Col className="col-10">
                   <Row>
@@ -52,17 +53,17 @@ export default class ContactsPage extends Component {
               </Row>
               <Row className="mt-3">
                 <Col className="col-2">
-                  <img src={mail} />
+                  <img src={mail} alt="" />
                 </Col>
                 <Col className="col-10 justify-content-start text-left pl-0">
-                  <a class="contacts-link" href="mailto:chornyiav@gmail.com">
-                    chornyiav@gmail.com
+                  <a class="contacts-link" href="mailto:evforyou.com@gmail.com">
+                  evforyou.com@gmail.com
                   </a>
                 </Col>
               </Row>
               <Row className="mt-3">
                 <Col className="col-2 pt-1">
-                  <img src={adress} />
+                  <img src={adress} alt="" />
                 </Col>
                 <Col className="col-10 justify-content-start text-left pl-0">
                   <span class="contacts-link">
@@ -77,37 +78,39 @@ export default class ContactsPage extends Component {
                   rel="noopener noreferrer"
                   className="mr-3"
                 >
-                  <img src={facebk} />
+                  <img src={facebk} alt="" />
                 </a>
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/evforyou_com?igshid=1xqc1evw4bmox"
                   target="_blank"
                   rel="noopener noreferrer"
                   className=""
                 >
-                  <img src={insta} />
+                  <img src={insta} alt="" />
                 </a>
               </Row>
             </Col>
-            <Col className="col-12 col-lg-6 flip ">
-              <img className="mt-5" src={car} width="100%" />
+            <Col className="col-12 col-lg-6 ">
+              <img className="mt-5" src={car} alt="" width="100%" />
             </Col>
           </Row>
         </Container>
 
         <div className="map-wrapper-2">
           <GoogleMapReact
-            bootstrapURLKeys={{ key: "" }}
+            bootstrapURLKeys={{ key: "AIzaSyBE3X99rBoEkhYV48rR1XODRnFVYDZGBSM" }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
-          ></GoogleMapReact>
+          >
+            <Pointer lat={59.955413} lng={30.337844}/>
+          </GoogleMapReact>
         </div>
         <div className="d-none d-sm-block f-c-img">
           <WorkHours />
         </div>
         <div className="d-block d-sm-none f-c-img-hider">
           <div className="pt-3 pr-4 pl-4 light_grey">
-            <img className="img-fluid" src={logo} />
+            <img className="img-fluid" src={logo} alt="" />
             <p className="pt-3 my-0" style={{ fontSize: "14px" }}>
               “Мы осуществляем продажу электромобилей в наличии и под заказ как
               новых, так и бывших в употреблении.”

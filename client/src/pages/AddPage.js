@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { AdmMenu } from "../components/AdmMenu";
 import { Button, Form, Container, Col, Tab, Tabs } from "react-bootstrap";
 import { useHttp } from "../hooks/http.hook";
 import { useMessage } from "../hooks/message.hook";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 export const AddPage = () => {
   const [key, setKey] = useState("main");
@@ -51,6 +51,27 @@ export const AddPage = () => {
     clearError();
   }, [error, message, clearError]);
 
+  const isUpdate = !!useParams().id;
+
+  const id = useParams().id;
+
+  const fetchCar = useCallback(async () => {
+    try {
+      const fetched = await request(`/api/car/${id}`, "GET", null, {});
+      fetched.catalogImgsPath = fetched.catalogImgsPathArr.join(' ');
+      fetched.galleryImgsPath = fetched.galleryImgsPathArr.join(' ');
+      fetched.complectSafety = fetched.complectSafetyArr.join();
+      fetched.complectInterior = fetched.complectInteriorArr.join();
+      fetched.complectClimate = fetched.complectClimateArr.join();
+      setForm({...fetched});
+    } catch (e) {}
+  }, [request, id]);
+
+  useEffect(() => {
+    if(id){
+    fetchCar();}
+  }, [fetchCar, id]);
+
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -58,6 +79,14 @@ export const AddPage = () => {
   const addHandler = async () => {
     try {
       const data = await request("/api/car/add", "POST", { ...form });
+      message(data.message);
+      return history.push(`/adm/details/${data.car._id}`);
+    } catch (e) {}
+  };
+
+  const updateHandler = async () => {
+    try {
+      const data = await request(`/api/car/update/${id}`, "POST", { ...form });
       message(data.message);
       return history.push(`/adm/details/${data.car._id}`);
     } catch (e) {}
@@ -393,7 +422,11 @@ export const AddPage = () => {
             </Tab>
           </Tabs>
 
-          <Button className="my-3" variant="primary" onClick={addHandler}>
+          <Button
+            className="my-3"
+            variant="primary"
+            onClick={isUpdate ? updateHandler : addHandler}
+          >
             Save
           </Button>
         </Form>

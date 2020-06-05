@@ -2,14 +2,11 @@ import React, { Component } from "react";
 import "./SpecsItem.css";
 
 export default class SpecsItem extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className="row mb-3">
         <div className="col-4 p-0 mt-75">
-          <img src={this.props.pic} className="img-fluid" />
+          <img src={this.props.pic} alt="" className="img-fluid" />
         </div>
         <div className="col-8">
           <div className="row font_pfespl">{this.props.s_title}</div>

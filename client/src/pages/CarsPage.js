@@ -19,6 +19,17 @@ export const CarsPage = () => {
     fetchCars();
   }, [fetchCars]);
 
+  
+  const handleDelete = async (id) => {
+    try {
+      await request(`/api/car/del/${id}`, "POST", null, {});
+      try {
+        const fetched = await request("/api/car", "GET", null, {});
+        setCars(fetched);
+      } catch (e) {}
+    } catch (e) {}
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -26,8 +37,8 @@ export const CarsPage = () => {
   return (
     <>
       <AdmMenu />
-      <h1>Cars</h1>
-      {!loading && <CarsList cars={cars} />}
+      
+      {!loading && <CarsList cars={cars} delete={handleDelete}/>}
     </>
   );
 };

@@ -21,6 +21,7 @@
 
 .width-5 {
   max-width: 15%;
+  height: auto;
 }
 
 .react-viewer-icon-reset {

@@ -9,25 +9,26 @@ router.post("/add", async (req, res) => {
   try {
     const data = req.body;
 
-    const fullName = `${data.lastName} ${data.firstName}`;
+    const fullName = data.firstName.value;
     if (!req.params.id) {
       const all = await Car.find();
-      id = all[0]._id;
-      const td = new ClientBuy({
-        phone: data.phone,
-        email: data.email,
+       
+  
+      const link=all[0]._id;
+      
+      const buy = new ClientBuy({
+        phone: data.phone.value,
         fullName,
-        car: id,
+        link,
       });
-      await td.save();
-      return res.status(201).json({ td });
+      await buy.save();
+      return res.status(201).json({ buy });
     }
-
+    const link=req.params.id
     const buy = new ClientBuy({
-      phone: data.phone,
-      email: data.email,
+      phone: data.phone.value,
       fullName,
-      car: req.params.id,
+      link,
     });
     await buy.save();
 
@@ -40,7 +41,6 @@ router.post("/add", async (req, res) => {
 //  delete one item by id
 router.post("/del/:id", async (req, res) => {
   try {
-    console.log(req.params.id);
     await ClientBuy.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: "deleted" });
   } catch (e) {

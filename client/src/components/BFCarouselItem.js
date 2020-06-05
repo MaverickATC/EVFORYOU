@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "./BFCarouselItem.css";
 
 export default class BFCarouselItem extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>

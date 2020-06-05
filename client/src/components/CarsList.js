@@ -1,56 +1,76 @@
 import React from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useHttp } from "../hooks/http.hook";
 import { useHistory } from "react-router-dom";
 
-export const CarsList = ({ cars }) => {
-  const { request } = useHttp();
+export const CarsList = (props) => {
   const history = useHistory();
 
-  const handleDelete = async (id) => {
+
+  const handleChange = async (id) => {
     try {
-      await request(`/api/car/del/${id}`, "POST", null, {});
-      return history.push(`/adm/cars`);
+      history.push(`/adm/update/${id}`);
     } catch (e) {}
   };
 
-  if (!cars.length) {
+  if (!props.cars.length) {
     return <p>Машин пока нет</p>;
   }
 
   return (
-    <Container>
+    <Container fluid>
+      <h1>Cars</h1>
       <ul className="car-specs">
-        {cars.map((car, index) => {
+        {props.cars.map((car, index) => {
           return (
             <li key={index}>
               <hr />
-              <div className="media my-5 d-flex">
-                <img
-                  src={car.testdriveImgPath}
-                  className="mx-3"
-                  alt="..."
-                  style={{ maxWidth: "150px" }}
-                />
-                <div className="">
+              <Row>
+                <Col xs="4">
+                  <img
+                    src={car.testdriveImgPath}
+                    className="mx-3 img-fluid"
+                    alt="..."
+                    //style={{ maxWidth: "150px" }}
+                  />
+                </Col>
+                <Col xs="6">
                   <h5 className="mt-2">{car.model}</h5>
                   {car.description}
-                </div>
-                <Link to={`/adm/details/${car._id}`} className="ml-5 mt-3">
-                  Просмотреть
-                </Link>
-                <Button
-                  variant="danger"
-                  className="ml-5 mt-3"
-                  onClick={() => {
-                    handleDelete(car._id);
-                  }}
-                >
-                  {" "}
-                  Удалить
-                </Button>
-              </div>
+                  <p className="text-red">
+                    Ссылка в каталог:{" "}
+                    <span className="text-dark">{`https://evforyou.com//catalog/${car._id}`}</span>
+                  </p>
+                </Col>
+                <Col xs="2" className="text-left">
+                  <Link
+                    to={`/adm/details/${car._id}`}
+                    className="ml-5 mt-3 btn btn-outline-danger"
+                  >
+                    Просмотреть
+                  </Link>
+                  <Button
+                    variant="warning"
+                    className="ml-5 mt-3"
+                    onClick={(event) => {
+                      handleChange(car._id);
+                    }}
+                  >
+                    Изменить
+                  </Button>
+                  <Button
+                    variant="danger"
+                    className="ml-5 mt-3"
+                    onClick={() => {
+                      props.delete(car._id);
+                    }}
+                  >
+                    {" "}
+                    Удалить
+                  </Button>
+                </Col>
+              </Row>
+
               <hr />
             </li>
           );

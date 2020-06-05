@@ -12,7 +12,7 @@ export default class FooterContacts extends Component {
         <Col xs="12" sm="12" md="6" className="text-white mt-4 pl-0 pl-md-5">
           <Row className="pl-5">
             <Col className="col-2 pt-2">
-              <img className="pt-1" src={tel} />
+              <img className="pt-1" src={tel} alt="" />
             </Col>
             <Col className="col-10 text-left">
               <a className="f-contacts-link" href="tel:+38 095 113 85 98">
@@ -26,17 +26,17 @@ export default class FooterContacts extends Component {
           </Row>
           <Row className="mt-3 pl-5">
             <Col className="col-2">
-              <img src={mail} />
+              <img src={mail} alt="" />
             </Col>
             <Col className="col-10 text-left">
-              <a className="f-contacts-link" href="mailto:chornyiav@gmail.com">
-                chornyiav@gmail.com
+              <a className="f-contacts-link" href="mailto:evforyou.com@gmail.com">
+                evforyou.com@gmail.com
               </a>
             </Col>
           </Row>
           <Row className="mt-3 pl-5">
             <Col className="col-2">
-              <img className="pt-2" src={adress} />
+              <img className="pt-2" src={adress} alt="" />
             </Col>
             <Col className="col-10 text-left">
               <span className="f-contacts-link">

@@ -1,6 +1,5 @@
 import './Benefits.css';
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap';
 import BFCarousel from './BFCarousel';
 
 export default class Benefits extends Component {

@@ -1,16 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { Container } from "react-bootstrap";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-
-
-//import images
-import i1 from "../assets/testdrive1.png";
-import i2 from "../assets/testdrive2.png";
-import i3 from "../assets/testdrive3.png";
-import i4 from "../assets/testdrive4.png";
-import i5 from "../assets/testdrive5.png";
-import i6 from "../assets/testdrive6.png";
 import { useHttp } from "../hooks/http.hook";
 import { Loader } from "./Loader";
 

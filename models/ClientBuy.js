@@ -4,8 +4,7 @@ const schema = new Schema({
   creationDate: { type: Date, default: Date.now },
   fullName: { type: String, required: true },
   phone: { type: String, required: true },
-  email: { type: String, required: true },
-  car: { type: Types.ObjectId, ref: "Car" },
+  link: { type: String, required:true }
 });
 
 module.exports = model("ClientBuy", schema);

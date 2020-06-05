@@ -19,6 +19,16 @@ export const ClientsPage = () => {
     fetchClients();
   }, [fetchClients]);
 
+  const handleDelete = async (id) => {
+    try {
+      await request(`/api/client/del/${id}`, "POST", null, {});
+      try {
+        const fetched = await request("/api/client", "GET", null, {});
+        setClients(fetched);
+      } catch (e) {}
+    } catch (e) {}
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -27,7 +37,7 @@ export const ClientsPage = () => {
     <>
       <AdmMenu />
       <h1> Clients </h1>
-      {!loading && <ClientsList clients={clients} />}
+      {!loading && <ClientsList clients={clients} delete={handleDelete}/>}
     </>
   );
 };

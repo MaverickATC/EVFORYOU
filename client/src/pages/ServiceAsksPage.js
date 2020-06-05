@@ -19,6 +19,16 @@ export const ServiceAsksPage = () => {
     fetchAsks();
   }, [fetchAsks]);
 
+  const handleDelete = async (id) => {
+    try {
+      await request(`/api/client/service/del/${id}`, "POST", null, {});
+      try {
+        const fetched = await request("/api/service", "GET", null, {});
+        setAsks(fetched);
+      } catch (e) {}
+    } catch (e) {}
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -27,7 +37,7 @@ export const ServiceAsksPage = () => {
     <>
       <AdmMenu />
       <h1>Service asks</h1>
-      {!loading && <ServiceAsksList asks={asks} />}
+      {!loading && <ServiceAsksList asks={asks} delete={handleDelete} />}
     </>
   );
 };

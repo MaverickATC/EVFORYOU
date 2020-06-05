@@ -1,9 +1,8 @@
-import React, { Component, useState, useCallback, useEffect } from "react";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import React, {useState, useCallback, useEffect } from "react";
+import { Container, } from "react-bootstrap";
 import Slider from "react-slick";
 import left_btn from "../assets/arrow_left.png";
 import right_btn from "../assets/arrow_right.png";
-
 import CatalogCard from "./CatalogCard";
 import { useHttp } from "../hooks/http.hook";
 import { Loader } from "./Loader";
@@ -11,23 +10,30 @@ import { Loader } from "./Loader";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
+    <div >
     <img
       className={className}
-      style={{ ...style, display: "block", background: "transparent", width: '32px', height:"32px"}}
+      style={{ ...style, display: "block", background: "transparent", width: '24px', height:"24px"}}
       onClick={onClick}
       src={right_btn}
+      alt=""
     />
+    </div>
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <div>
+    <img
       className={className}
-      style={{ ...style, display: "block", background: "green" }}
+      style={{ ...style, display: "block", background: "transparent", width: '24px', height:"24px" }}
       onClick={onClick}
+      src={left_btn}
+      alt=""      
     />
+    </div>
   );
 }
 
@@ -54,9 +60,9 @@ export const Catalog = ({ select }) => {
     autoplay: false,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false,
-    //nextArrow: <SampleNextArrow />,
-    //prevArrow: <SamplePrevArrow />,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 992,
@@ -99,11 +105,16 @@ export const Catalog = ({ select }) => {
 
       <div className="mt-5 pb-5">
         <div className="col-10 mx-auto">
-        <Slider {...settings} className="mx-3">
-          {cars.map((car, index) => (
-            <CatalogCard key={index} item={car} selected={select} />
-          ))}
-        </Slider>
+          <Slider
+            {...settings}
+            rows={cars.length < 6 ? 1 : 2}
+            arrows={cars.length < 6 ? false : true}
+            className="mx-3"
+          >
+            {cars.map((car, index) => (
+              <CatalogCard key={index} item={car} selected={select} />
+            ))}
+          </Slider>
         </div>
       </div>
     </Container>

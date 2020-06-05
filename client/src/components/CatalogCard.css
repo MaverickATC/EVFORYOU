@@ -15,7 +15,20 @@
   }
 
   .item-img{
-      max-width: 80%;
+      max-width: 100%;
+      height: 6rem;
+  }
+
+  .model-wrapper{
+    display: block;
+    height: 6rem;
+  }
+
+  @media (min-width: 1200px) {
+    .model-wrapper{
+    display: block;
+    height: 4rem;
+  }
   }
   
   .cat-item-text-black{

@@ -1,7 +1,7 @@
 import "./Service.css";
 import React, { Component } from "react";
 import { Container, Button } from "react-bootstrap";
-import pic1 from "../assets/service-main.png";
+import pic1 from "../assets/service.png";
 import ServiceModalForm from "./ServiceModalForm";
 
 export default class Service extends Component {

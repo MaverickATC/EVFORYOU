@@ -1,28 +1,15 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useHttp } from "../hooks/http.hook";
-import { useHistory } from "react-router-dom";
 
-export const ClientsList = ({ clients }) => {
-  const { request } = useHttp();
-  const history = useHistory();
-
-  const handleDelete = async (id) => {
-    try {
-      await request(`/api/client/del/${id}`, "POST", null, {});
-      return history.push(`/adm/clients`);
-    } catch (e) {}
-  };
-
-  if (!clients.length) {
+export const ClientsList = (props) => {
+  if (!props.clients.length) {
     return <p>Клиентов пока нет</p>;
   }
 
   return (
     <Container>
       <ul className="car-specs">
-        {clients.map((client, index) => {
+        {props.clients.map((client, index) => {
           return (
             <li key={index}>
               <hr />
@@ -39,7 +26,7 @@ export const ClientsList = ({ clients }) => {
                   variant="danger"
                   className="ml-5 mt-3"
                   onClick={() => {
-                    handleDelete(client._id);
+                    props.delete(client._id);
                   }}
                 >
                   {" "}

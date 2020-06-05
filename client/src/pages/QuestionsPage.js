@@ -19,6 +19,16 @@ export const QuestionsPage = () => {
     fetchAsks();
   }, [fetchAsks]);
 
+  const handleDelete = async (id) => {
+    try {
+      await request(`/api/question/del/${id}`, "POST", null, {});
+      try {
+        const fetched = await request("/api/question", "GET", null, {});
+        setAsks(fetched);
+      } catch (e) {}
+    } catch (e) {}
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -27,7 +37,7 @@ export const QuestionsPage = () => {
     <>
       <AdmMenu />
       <h1>Questions</h1>
-      {!loading && <QuestionsList asks={asks} />}
+      {!loading && <QuestionsList asks={asks} delete={handleDelete} />}
     </>
   );
 };
