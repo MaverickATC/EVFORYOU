@@ -22,8 +22,8 @@ app.use("/api/buy", require("./routes/buy.routes"));
 
 //const PORT = process.env.PORT || 8080;
 //////
-const PORT = config.get('port') || 5000;
-
+//const PORT = config.get('port') || 5000;
+const PORT = 80;
 async function start() {
   try {
     await mongoose.connect(config.get("mongoURI"), {
