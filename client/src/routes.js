@@ -82,6 +82,9 @@ export const useRouts = (isAuthenticated, isAdmin) => {
       <Route path="/catalog" exact>
         <CatalogPage />
       </Route>
+      <Route path="/catalog/:id">
+        <CatalogPage />
+      </Route>
       <Route path="/contacts" exact>
         <ContactsPage />
       </Route>
